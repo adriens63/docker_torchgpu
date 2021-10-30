@@ -1,0 +1,14 @@
+version: '2.3'
+services:
+  torchgpu:
+    container_name: 'container_torchgpu'
+    build: ./img_torchgpu
+    image: img_torchgpu 
+    #bien mettre image apres le build, pour renommer l'image ainsi built
+    ports:
+      - 8891:8888
+    volumes:
+      - ~/git/coding/programming/python_scripts:/torch
+    runtime: nvidia
+    command: tail -F anything
+    #the tail command will wait forever for the file anything to appear
